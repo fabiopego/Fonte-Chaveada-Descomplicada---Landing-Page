@@ -401,7 +401,7 @@ const Pricing = () => {
           <p className="text-slate-500 line-through text-xl mb-2">De R$ 497,00 por apenas</p>
           <div className="mb-8">
             <span className="text-slate-400 text-2xl align-top mr-2 font-bold">12x</span>
-            <span className="text-6xl md:text-8xl font-orbitron font-extrabold text-white">19,93</span>
+            <span className="text-6xl md:text-8xl font-orbitron font-extrabold text-emerald-500">19,93</span>
           </div>
           <p className="text-slate-300 mb-10 text-lg">Ou R$ 197,00 à vista no PIX ou Cartão</p>
           
