@@ -13,7 +13,8 @@ import {
   Star,
   CheckCircle2,
   AlertCircle,
-  PlayCircle
+  PlayCircle,
+  Youtube
 } from 'lucide-react';
 
 // Components
@@ -31,6 +32,7 @@ const Navbar = () => (
         <a href="#curriculo" className="hover:text-white transition-colors">Conteúdo</a>
         <a href="#bonus" className="hover:text-white transition-colors">Bônus</a>
         <a href="#depoimentos" className="hover:text-white transition-colors">Depoimentos</a>
+        <a href="#professor" className="hover:text-white transition-colors">Professor</a>
       </div>
       <a 
         href="#preço" 
@@ -60,10 +62,10 @@ const Hero = () => (
         Aprenda a Diagnosticar e Reparar com Clareza, Mesmo Sem Ser Expert em Eletrônica. 
         Um curso direto ao ponto, criado por técnico para técnico.
       </p>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
         <a 
           href="#preço" 
-          className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-900 px-8 py-4 rounded-xl text-lg font-black flex items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+          className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-8 py-4 rounded-xl text-lg font-black flex items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
         >
           QUERO COMEÇAR AGORA <ArrowRight className="w-5 h-5" />
         </a>
@@ -73,13 +75,15 @@ const Hero = () => (
         </div>
       </div>
       
-      <div className="mt-16 relative mx-auto max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" alt="Aula Prática" className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" />
-        <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all">
-            <PlayCircle className="w-12 h-12 text-white fill-white/20" />
-          </div>
-        </div>
+      <div className="relative mx-auto max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+        <iframe 
+          className="w-full h-full"
+          src="https://www.youtube.com/embed/8rsLRlbEyyA?rel=0&showinfo=0&autoplay=0" 
+          title="Fonte Chaveada Descomplicada" 
+          frameBorder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowFullScreen
+        ></iframe>
       </div>
     </div>
   </section>
@@ -362,6 +366,70 @@ const Pricing = () => {
   );
 };
 
+const TeacherSection = () => (
+  <section id="professor" className="py-24 bg-slate-950 relative overflow-hidden">
+    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+    <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex-1 relative order-2 lg:order-1">
+          <div className="absolute -inset-4 bg-blue-500/20 blur-[100px] rounded-full opacity-30" />
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+            <div className="relative w-full max-w-md mx-auto aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+               <img 
+                 src="https://lps.inverterfacil.com.br/fonte-chaveada/gabriel-lima.png" 
+                 alt="Gabriel Lima" 
+                 className="w-full h-full object-cover"
+                 onError={(e) => {
+                   // Fallback visual se a imagem não carregar no domínio específico
+                   e.currentTarget.src = "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80&w=800";
+                 }}
+               />
+            </div>
+            <div className="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-xl border border-white/10">
+              <p className="text-white font-black text-xl font-orbitron">Gabriel Lima</p>
+              <p className="text-blue-400 text-xs font-bold uppercase tracking-widest">Especialista Inverter</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex-1 text-left order-1 lg:order-2">
+          <span className="inline-block bg-blue-500/10 text-blue-400 px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-blue-500/20">
+            Seu instrutor
+          </span>
+          <h2 className="text-3xl md:text-5xl font-orbitron font-bold text-white mb-8">
+            Quem vai ser o seu professor?
+          </h2>
+          <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
+            <p>
+              Meu nome é <span className="text-white font-bold">Gabriel Lima</span>, sou especialista em Tecnologia Inverter.
+            </p>
+            <p>
+              Formado em Eletrônica e em Refrigeração, e com amplo conhecimento em reparos de Placas Inverter. Sou criador do Canal <span className="text-blue-400 font-bold underline decoration-blue-500/30 underline-offset-4">Gabriel Lima Refrigeração</span>, com <span className="text-white font-bold">89 mil inscritos</span> e mais de <span className="text-white font-bold">3 milhões</span> de visualizações no YouTube.
+            </p>
+            <p>
+              E também sou criador do <span className="text-emerald-400 font-bold italic">Método Inverter Fácil</span>, onde disponibilizo todo o meu conhecimento de conserto de placa inverter no formato de Curso.
+            </p>
+          </div>
+          
+          <div className="mt-12 flex flex-wrap gap-8 items-center">
+            <div className="flex flex-col">
+              <span className="text-4xl font-black text-white font-orbitron tracking-tighter">89K</span>
+              <span className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                <Youtube className="w-3 h-3 text-red-500" /> Inscritos
+              </span>
+            </div>
+            <div className="w-px h-10 bg-white/10" />
+            <div className="flex flex-col">
+              <span className="text-4xl font-black text-white font-orbitron tracking-tighter">3M+</span>
+              <span className="text-slate-500 text-xs font-bold uppercase tracking-wider">Visualizações</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Footer = () => (
   <footer className="py-12 bg-slate-950 border-t border-white/5">
     <div className="max-w-7xl mx-auto px-4">
@@ -403,6 +471,7 @@ const LandingPage = () => {
       <Bonus />
       <Testimonials />
       <Pricing />
+      <TeacherSection />
       <Footer />
 
       {/* Sticky Mobile CTA */}
@@ -419,7 +488,6 @@ const LandingPage = () => {
 };
 
 const App: React.FC = () => {
-  // Renderiza a Landing Page diretamente para garantir compatibilidade total no editor e produção
   return <LandingPage />;
 };
 
