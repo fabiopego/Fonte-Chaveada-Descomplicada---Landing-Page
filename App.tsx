@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { 
   CheckCircle, 
   ChevronDown, 
   Cpu, 
   Zap, 
-  Tool, 
   Award, 
   ShieldCheck, 
   Users, 
@@ -75,7 +75,7 @@ const Hero = () => (
       </div>
       
       <div className="mt-16 relative mx-auto max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-        <img src="https://picsum.photos/seed/electronics/1200/675" alt="Aula Prática" className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" />
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" alt="Aula Prática" className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" />
         <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
           <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all">
             <PlayCircle className="w-12 h-12 text-white fill-white/20" />
@@ -383,7 +383,7 @@ const Footer = () => (
   </footer>
 );
 
-const App: React.FC = () => {
+const LandingPage = () => {
   const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
@@ -416,6 +416,16 @@ const App: React.FC = () => {
         </a>
       </div>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      {/* Fallback route within the basename */}
+      <Route path="*" element={<LandingPage />} />
+    </Routes>
   );
 };
 
