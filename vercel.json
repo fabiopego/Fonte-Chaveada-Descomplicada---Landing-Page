@@ -1,7 +1,13 @@
 
 {
   "rewrites": [
-    { "source": "/fonte-chaveada", "destination": "/index.html" },
-    { "source": "/fonte-chaveada/(.*)", "destination": "/index.html" }
+    {
+      "source": "/fonte-chaveada",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fonte-chaveada/:path((?!.*\\.).*)",
+      "destination": "/index.html"
+    }
   ]
 }
