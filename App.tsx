@@ -28,15 +28,15 @@ const Navbar = () => (
         <span className="font-orbitron font-bold text-xl tracking-tighter text-blue-400">FONTE PRO</span>
       </div>
       <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-        <a href="#sobre" className="hover:text-white transition-colors">Sobre</a>
-        <a href="#curriculo" className="hover:text-white transition-colors">Conteúdo</a>
-        <a href="#bonus" className="hover:text-white transition-colors">Bônus</a>
-        <a href="#depoimentos" className="hover:text-white transition-colors">Depoimentos</a>
-        <a href="#professor" className="hover:text-white transition-colors">Professor</a>
+        <a href="#sobre" className="hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Sobre</a>
+        <a href="#curriculo" className="hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Conteúdo</a>
+        <a href="#bonus" className="hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Bônus</a>
+        <a href="#depoimentos" className="hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Depoimentos</a>
+        <a href="#professor" className="hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Professor</a>
       </div>
       <a 
         href="#preço" 
-        className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105"
+        className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-600/20"
       >
         Garanta sua Vaga
       </a>
@@ -78,11 +78,12 @@ const Hero = () => (
       <div className="relative mx-auto max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
         <iframe 
           className="w-full h-full"
-          src="https://www.youtube.com/embed/8rsLRlbEyyA?rel=0&showinfo=0&autoplay=0" 
+          src="https://www.youtube.com/embed/8rsLRlbEyyA?rel=0&modestbranding=1" 
           title="Fonte Chaveada Descomplicada" 
           frameBorder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
           allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
         ></iframe>
       </div>
     </div>
@@ -99,7 +100,7 @@ const TargetAudience = () => {
   ];
 
   return (
-    <section id="sobre" className="py-24 bg-slate-950">
+    <section id="sobre" className="py-24 bg-slate-950 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
@@ -175,7 +176,7 @@ const Curriculum = () => {
   ];
 
   return (
-    <section id="curriculo" className="py-24 bg-slate-900">
+    <section id="curriculo" className="py-24 bg-slate-900 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-orbitron font-bold text-white mb-4">O que você vai aprender?</h2>
@@ -226,7 +227,7 @@ const Bonus = () => {
   ];
 
   return (
-    <section id="bonus" className="py-24 bg-slate-950 overflow-hidden relative">
+    <section id="bonus" className="py-24 bg-slate-950 overflow-hidden relative scroll-mt-16">
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full" />
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
@@ -297,7 +298,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="depoimentos" className="py-24 bg-slate-950">
+    <section id="depoimentos" className="py-24 bg-slate-950 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-orbitron font-bold text-white mb-4">Quem já aprendeu aprova</h2>
@@ -328,7 +329,7 @@ const Testimonials = () => {
 
 const Pricing = () => {
   return (
-    <section id="preço" className="py-24 bg-slate-900 relative">
+    <section id="preço" className="py-24 bg-slate-900 relative scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <div className="max-w-2xl mx-auto bg-slate-950 border border-blue-500/30 rounded-[40px] p-8 md:p-16 shadow-[0_0_50px_rgba(59,130,246,0.15)] relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-blue-500 text-white px-6 py-2 rounded-bl-3xl font-bold text-sm">
@@ -343,8 +344,10 @@ const Pricing = () => {
           <p className="text-slate-300 mb-10 text-lg">Ou R$ 197,00 à vista no PIX ou Cartão</p>
           
           <a 
-            href="#" 
-            className="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 py-6 rounded-2xl text-2xl font-black transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.3)] mb-6"
+            href="https://clkdmg.site/pay/9fe94596-9cb4-463f-bc79-0d9eec44d4c6" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 py-6 rounded-2xl text-2xl font-black transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.3)] mb-6 animate-pulse"
           >
             QUERO MINHA VAGA AGORA!
           </a>
@@ -367,7 +370,7 @@ const Pricing = () => {
 };
 
 const TeacherSection = () => (
-  <section id="professor" className="py-24 bg-slate-950 relative overflow-hidden">
+  <section id="professor" className="py-24 bg-slate-950 relative overflow-hidden scroll-mt-16">
     <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
     <div className="max-w-7xl mx-auto px-4 relative z-10">
       <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -375,13 +378,12 @@ const TeacherSection = () => (
           <div className="absolute -inset-4 bg-blue-500/20 blur-[100px] rounded-full opacity-30" />
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <div className="relative w-full max-w-md mx-auto aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <div className="relative w-full max-w-md mx-auto aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-800">
                <img 
-                 src="https://lps.inverterfacil.com.br/fonte-chaveada/gabriel-lima.png" 
+                 src="https://i.postimg.cc/FzSds8sB/imagem-gabriel.png" 
                  alt="Gabriel Lima" 
                  className="w-full h-full object-cover"
                  onError={(e) => {
-                   // Fallback visual se a imagem não carregar no domínio específico
                    e.currentTarget.src = "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80&w=800";
                  }}
                />
@@ -404,7 +406,7 @@ const TeacherSection = () => (
               Meu nome é <span className="text-white font-bold">Gabriel Lima</span>, sou especialista em Tecnologia Inverter.
             </p>
             <p>
-              Formado em Eletrônica e em Refrigeração, e com amplo conhecimento em reparos de Placas Inverter. Sou criador do Canal <span className="text-blue-400 font-bold underline decoration-blue-500/30 underline-offset-4">Gabriel Lima Refrigeração</span>, com <span className="text-white font-bold">89 mil inscritos</span> e mais de <span className="text-white font-bold">3 milhões</span> de visualizações no YouTube.
+              Formado em Eletrônica e em Refrigeração, e com amplo conhecimento em reparos de Placas Inverter. Sou criador do Canal <span className="text-blue-400 font-bold underline decoration-blue-500/30 underline-offset-4">Gabriel Lima Refrigeração</span>, com <span className="text-white font-bold">111 mil inscritos</span> e mais de <span className="text-white font-bold">6 milhões</span> de visualizações no YouTube.
             </p>
             <p>
               E também sou criador do <span className="text-emerald-400 font-bold italic">Método Inverter Fácil</span>, onde disponibilizo todo o meu conhecimento de conserto de placa inverter no formato de Curso.
@@ -413,14 +415,14 @@ const TeacherSection = () => (
           
           <div className="mt-12 flex flex-wrap gap-8 items-center">
             <div className="flex flex-col">
-              <span className="text-4xl font-black text-white font-orbitron tracking-tighter">89K</span>
+              <span className="text-4xl font-black text-white font-orbitron tracking-tighter">111K</span>
               <span className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
                 <Youtube className="w-3 h-3 text-red-500" /> Inscritos
               </span>
             </div>
             <div className="w-px h-10 bg-white/10" />
             <div className="flex flex-col">
-              <span className="text-4xl font-black text-white font-orbitron tracking-tighter">3M+</span>
+              <span className="text-4xl font-black text-white font-orbitron tracking-tighter">6M+</span>
               <span className="text-slate-500 text-xs font-bold uppercase tracking-wider">Visualizações</span>
             </div>
           </div>
