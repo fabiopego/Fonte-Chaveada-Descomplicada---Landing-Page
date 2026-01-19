@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import { 
   CheckCircle, 
   ChevronDown, 
@@ -420,13 +419,8 @@ const LandingPage = () => {
 };
 
 const App: React.FC = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      {/* Fallback route within the basename */}
-      <Route path="*" element={<LandingPage />} />
-    </Routes>
-  );
+  // Renderiza a Landing Page diretamente para garantir compatibilidade total no editor e produção
+  return <LandingPage />;
 };
 
 export default App;
