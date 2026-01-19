@@ -243,11 +243,6 @@ const Bonus = () => {
       value: "R$ 47,00"
     },
     {
-      title: "Comunidade VIP no WhatsApp",
-      desc: "Suporte direto comigo e troca de experiências valiosas com outros alunos.",
-      value: "Inestimável"
-    },
-    {
       title: "Atualizações por 1 Ano",
       desc: "Receba todas as novas aulas e análises de placas que entrarem no curso.",
       value: "R$ 197,00"
@@ -262,7 +257,7 @@ const Bonus = () => {
           <span className="text-blue-400 font-bold tracking-widest uppercase text-sm">Presentes para você</span>
           <h2 className="text-3xl md:text-5xl font-orbitron font-bold text-white mt-2">Bônus Exclusivos</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
           {bonuses.map((b, idx) => (
             <div key={idx} className="bg-slate-900 border border-white/5 p-8 rounded-2xl hover:bg-slate-800/50 transition-all group">
               <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
