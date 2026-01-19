@@ -14,8 +14,36 @@ import {
   CheckCircle2,
   AlertCircle,
   PlayCircle,
-  Youtube
+  Youtube,
+  Lock,
+  CreditCard,
+  Clock
 } from 'lucide-react';
+
+// Timer Hook
+const useCountdown = (targetDate: string) => {
+  const countDownDate = new Date(targetDate).getTime();
+  const [countDown, setCountDown] = useState(countDownDate - new Date().getTime());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCountDown(countDownDate - new Date().getTime());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [countDownDate]);
+
+  return getReturnValues(countDown);
+};
+
+const getReturnValues = (countDown: number) => {
+  const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((countDown % (1000 * 60)) / 1000);
+
+  return { days, hours, minutes, seconds };
+};
 
 // Components
 const Navbar = () => (
@@ -328,6 +356,11 @@ const Testimonials = () => {
 };
 
 const Pricing = () => {
+  const targetDate = '2026-01-22T00:00:00';
+  const { days, hours, minutes, seconds } = useCountdown(targetDate);
+
+  const formatNum = (num: number) => num.toString().padStart(2, '0');
+
   return (
     <section id="preço" className="py-24 bg-slate-900 relative scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 text-center">
@@ -336,6 +369,35 @@ const Pricing = () => {
             OFERTA DE LANÇAMENTO
           </div>
           
+          {/* Cronômetro Regressivo */}
+          <div className="mb-10 text-center">
+            <p className="text-blue-400 font-bold text-sm uppercase tracking-[0.2em] mb-4 flex items-center justify-center gap-2">
+              <Clock className="w-4 h-4" /> Oferta de Lançamento Disponível 48h:
+            </p>
+            <div className="flex justify-center gap-2 md:gap-4">
+              {[
+                { label: 'DIAS', value: days },
+                { label: 'HORAS', value: hours },
+                { label: 'MINUTOS', value: minutes },
+                { label: 'SEGUNDOS', value: seconds },
+              ].map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center">
+                  <div className="bg-blue-600/10 border border-blue-500/20 w-14 h-14 md:w-20 md:h-20 flex items-center justify-center rounded-xl md:rounded-2xl shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                    <span className="text-2xl md:text-4xl font-orbitron font-bold text-white">
+                      {item.value < 0 ? '00' : formatNum(item.value)}
+                    </span>
+                  </div>
+                  <span className="text-[10px] md:text-xs text-slate-500 font-bold mt-2 tracking-widest uppercase">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-slate-500 text-xs font-medium">
+              Até o dia 22 de Janeiro de 2026 à meia-noite.
+            </p>
+          </div>
+
           <p className="text-slate-500 line-through text-xl mb-2">De R$ 497,00 por apenas</p>
           <div className="mb-8">
             <span className="text-slate-400 text-2xl align-top mr-2 font-bold">12x</span>
@@ -352,16 +414,31 @@ const Pricing = () => {
             QUERO MINHA VAGA AGORA!
           </a>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-12 pt-8 border-t border-white/10">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-8 h-8 text-emerald-500" />
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-12 pt-8 border-t border-white/10">
+            <div className="flex items-center gap-3">
+              <ShieldCheck className="w-10 h-10 text-emerald-500" />
               <div className="text-left">
                 <p className="text-white font-bold text-sm">Garantia Blindada</p>
                 <p className="text-slate-400 text-xs">7 dias ou seu dinheiro de volta</p>
               </div>
             </div>
-            <div className="h-8 w-px bg-white/10 hidden md:block" />
-            <img src="https://logodownload.org/wp-content/uploads/2014/07/cartao-de-credito-logo.png" alt="Cartões" className="h-6 opacity-60 grayscale" />
+            
+            <div className="hidden md:block h-12 w-px bg-white/10" />
+            
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <div className="flex items-center gap-1.5 text-slate-300 text-[10px] font-bold uppercase tracking-wider mb-1">
+                <Lock className="w-3 h-3 text-emerald-500" /> Checkout 100% Seguro
+              </div>
+              <img 
+                src="https://help.vindi.com.br/hc/article_attachments/360018862112/selos-pagamento.png" 
+                alt="Métodos de Pagamento Aceitos" 
+                className="h-7 md:h-8 opacity-90 object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement?.insertAdjacentHTML('beforeend', '<div class="text-white/50 text-xs italic flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg> Aceitamos PIX e Cartão</div>');
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
