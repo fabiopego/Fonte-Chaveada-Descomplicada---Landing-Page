@@ -105,7 +105,7 @@ const Hero = () => (
       
       <div className="relative mx-auto max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
         <iframe 
-          src="https://iframe.mediadelivery.net/embed/500288/1a301329-5d86-47e6-9e7b-d59d18b6effd?autoplay=false&loop=false&muted=false&preload=true&responsive=false" 
+          src="https://iframe.mediadelivery.net/embed/500288/1a301329-5d86-47e6-9e7b-d59d18b6effd?autoplay=true&loop=false&muted=true&preload=true&responsive=false" 
           loading="lazy" 
           style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
           allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
