@@ -105,13 +105,12 @@ const Hero = () => (
       
       <div className="relative mx-auto max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
         <iframe 
-          className="w-full h-full"
-          src="https://www.youtube.com/embed/8rsLRlbEyyA?rel=0&modestbranding=1" 
-          title="Fonte Chaveada Descomplicada" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
+          src="https://iframe.mediadelivery.net/embed/500288/1a301329-5d86-47e6-9e7b-d59d18b6effd?autoplay=false&loop=false&muted=false&preload=true&responsive=false" 
+          loading="lazy" 
+          style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
+          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+          allowFullScreen={true}
+          title="Vídeo de Apresentação"
         ></iframe>
       </div>
     </div>
