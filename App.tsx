@@ -365,8 +365,8 @@ const Pricing = () => {
           
           {/* Cronômetro Regressivo */}
           <div className="mb-10 text-center">
-            <p className="text-blue-400 font-bold text-sm uppercase tracking-[0.2em] mb-4 flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4" /> Oferta de Lançamento Disponível 48h:
+            <p className="text-yellow-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 flex items-center justify-center gap-2">
+              <Clock className="w-4 h-4" /> OFERTA POR TEMPO LIMITADO:
             </p>
             <div className="flex justify-center gap-2 md:gap-4">
               {[
@@ -376,18 +376,18 @@ const Pricing = () => {
                 { label: 'SEGUNDOS', value: seconds },
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col items-center">
-                  <div className="bg-blue-600/10 border border-blue-500/20 w-14 h-14 md:w-20 md:h-20 flex items-center justify-center rounded-xl md:rounded-2xl shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-                    <span className="text-2xl md:text-4xl font-orbitron font-bold text-white">
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 w-14 h-14 md:w-20 md:h-20 flex items-center justify-center rounded-xl md:rounded-2xl shadow-[0_0_20px_rgba(234,179,8,0.2)]">
+                    <span className="text-2xl md:text-4xl font-orbitron font-bold text-yellow-400">
                       {item.value < 0 ? '00' : formatNum(item.value)}
                     </span>
                   </div>
-                  <span className="text-[10px] md:text-xs text-slate-500 font-bold mt-2 tracking-widest uppercase">
+                  <span className="text-[10px] md:text-xs text-yellow-600 font-bold mt-2 tracking-widest uppercase">
                     {item.label}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-slate-500 text-xs font-medium">
+            <p className="mt-4 text-slate-400 text-xs font-medium bg-slate-900/50 inline-block px-4 py-1 rounded-full border border-white/5">
               Até o dia 25 de Janeiro de 2026 à meia-noite.
             </p>
           </div>
