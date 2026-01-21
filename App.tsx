@@ -350,7 +350,7 @@ const Testimonials = () => {
 };
 
 const Pricing = () => {
-  const targetDate = '2026-01-22T00:00:00';
+  const targetDate = '2026-01-25T00:00:00';
   const { days, hours, minutes, seconds } = useCountdown(targetDate);
 
   const formatNum = (num: number) => num.toString().padStart(2, '0');
@@ -388,7 +388,7 @@ const Pricing = () => {
               ))}
             </div>
             <p className="mt-4 text-slate-500 text-xs font-medium">
-              Até o dia 22 de Janeiro de 2026 à meia-noite.
+              Até o dia 25 de Janeiro de 2026 à meia-noite.
             </p>
           </div>
 
