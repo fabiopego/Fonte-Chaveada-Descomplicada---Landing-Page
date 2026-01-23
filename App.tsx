@@ -21,13 +21,16 @@ import {
 } from 'lucide-react';
 
 // Timer Hook
-const useCountdown = (targetDate: string) => {
-  const countDownDate = new Date(targetDate).getTime();
+const useCountdown = (targetDateISO: string) => {
+  // O sufixo -03:00 define o fuso de Brasília (GMT-3)
+  const countDownDate = new Date(targetDateISO).getTime();
   const [countDown, setCountDown] = useState(countDownDate - new Date().getTime());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountDown(countDownDate - new Date().getTime());
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+      setCountDown(distance);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -37,6 +40,9 @@ const useCountdown = (targetDate: string) => {
 };
 
 const getReturnValues = (countDown: number) => {
+  if (countDown < 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
   const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
   const hours = Math.floor((countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
@@ -350,8 +356,9 @@ const Testimonials = () => {
 };
 
 const Pricing = () => {
-  const targetDate = '2026-01-25T00:00:00';
-  const { days, hours, minutes, seconds } = useCountdown(targetDate);
+  // Ajuste exato: 25 de janeiro de 2026 às 23:59:59 (Horário de Brasília GMT-3)
+  const targetDateISO = '2026-01-25T23:59:59-03:00';
+  const { days, hours, minutes, seconds } = useCountdown(targetDateISO);
 
   const formatNum = (num: number) => num.toString().padStart(2, '0');
 
@@ -363,7 +370,6 @@ const Pricing = () => {
             OFERTA DE LANÇAMENTO
           </div>
           
-          {/* Cronômetro Regressivo */}
           <div className="mb-10 text-center">
             <p className="text-yellow-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 flex items-center justify-center gap-2">
               <Clock className="w-4 h-4" /> OFERTA POR TEMPO LIMITADO:
@@ -376,9 +382,9 @@ const Pricing = () => {
                 { label: 'SEGUNDOS', value: seconds },
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col items-center">
-                  <div className="bg-yellow-500/10 border border-yellow-500/30 w-14 h-14 md:w-20 md:h-20 flex items-center justify-center rounded-xl md:rounded-2xl shadow-[0_0_20px_rgba(234,179,8,0.2)]">
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 w-14 h-14 md:w-20 md:h-20 flex items-center justify-center rounded-xl md:rounded-2xl shadow-[0_0_20px_rgba(234,179,8,0.3)]">
                     <span className="text-2xl md:text-4xl font-orbitron font-bold text-yellow-400">
-                      {item.value < 0 ? '00' : formatNum(item.value)}
+                      {formatNum(item.value)}
                     </span>
                   </div>
                   <span className="text-[10px] md:text-xs text-yellow-600 font-bold mt-2 tracking-widest uppercase">
@@ -388,7 +394,7 @@ const Pricing = () => {
               ))}
             </div>
             <p className="mt-4 text-slate-400 text-xs font-medium bg-slate-900/50 inline-block px-4 py-1 rounded-full border border-white/5">
-              Até o dia 25 de Janeiro de 2026 à meia-noite.
+              Até o dia 25 de Janeiro de 2026 às 23:59 (Brasília).
             </p>
           </div>
 
