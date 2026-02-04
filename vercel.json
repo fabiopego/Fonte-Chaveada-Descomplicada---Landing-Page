@@ -1,21 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/fonte-chaveada",
-      "destination": "https://fonte-chaveada-git-main-fabio-pegos-projects.vercel.app/"
-    },
-    {
-      "source": "/fonte-chaveada/:path*",
-      "destination": "https://fonte-chaveada-git-main-fabio-pegos-projects.vercel.app/:path*"
-    },
-
-    {
-      "source": "/imersao-circuitos-de-comunicacao",
-      "destination": "https://imersao-circuitos-de-comunicacao-fabio-pegos-projects.vercel.app/"
-    },
-    {
-      "source": "/imersao-circuitos-de-comunicacao/:path*",
-      "destination": "https://imersao-circuitos-de-comunicacao-fabio-pegos-projects.vercel.app/:path*"
-    }
+    { "source": "/", "destination": "https://fonte-chaveada-git-main-fabio-pegos-projects.vercel.app/" },
+    { "source": "/:path*", "destination": "https://fonte-chaveada-git-main-fabio-pegos-projects.vercel.app/:path*" }
   ]
 }
