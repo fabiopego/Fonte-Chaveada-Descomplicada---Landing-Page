@@ -1,6 +1,11 @@
 {
   "rewrites": [
     {
+      "source": "/assets/:path*",
+      "destination": "https://imersao-circuitos-de-comunicacao-fabio-pegos-projects.vercel.app/assets/:path*"
+    },
+
+    {
       "source": "/fonte-chaveada",
       "destination": "https://fonte-chaveada-fabio-pegos-projects.vercel.app/"
     },
