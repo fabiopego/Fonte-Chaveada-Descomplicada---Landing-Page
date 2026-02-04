@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/fonte-chaveada",
-      "destination": "https://fonte-chaveada-git-main-fabio-pegos-projects.vercel.app/"
+      "destination": "https://fonte-chaveada-fabio-pegos-projects.vercel.app/"
     },
     {
       "source": "/fonte-chaveada/:path*",
-      "destination": "https://fonte-chaveada-git-main-fabio-pegos-projects.vercel.app/:path*"
+      "destination": "https://fonte-chaveada-fabio-pegos-projects.vercel.app/:path*"
     },
 
     {
